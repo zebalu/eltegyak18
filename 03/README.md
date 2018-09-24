@@ -1,4 +1,4 @@
-Ezek az egyszerű példák muautnak pár lehetetőséget Input / Output kezelésre.
+Ezek az egyszerű példák mutatnak pár lehetetőséget Input / Output kezelésre.
 
 # Feladat
 ## 1.0 Szigetek
