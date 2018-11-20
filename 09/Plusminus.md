@@ -2,7 +2,7 @@
 
 Egy feladatot csak abban az esetben fogadok el, ha minden alpontját teljesíted.
 
-  1. (1 pont) Készíts egy osztályt, amelynek példányai képesek egész számok egy listját kezelni. A listát kapják meg konstrukciós időben. Lehessen lekérdezni a lista:
+1. (1 pont) Készíts egy osztályt, amelynek példányai képesek egész számok egy listját kezelni. A listát kapják meg konstrukciós időben. Lehessen lekérdezni a lista:
     * minimumát
     * maximumát
     * számosságát
