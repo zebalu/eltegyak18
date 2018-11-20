@@ -7,7 +7,7 @@ Egy feladatot csak abban az esetben fogadok el, ha minden alpontját teljesíted
     * maximumát
     * számosságát
     * mindezen függvényeket tesztekkel fedd le
-2. (1 pont) Egészítsd ki az objektumokat olyan függvénnyel, amely visszadaja a lista:
+2. (1 pont) Egészítsd ki az objektumokat olyan függvénnyel, amely visszaadja a lista:
     * átlagát
     * szórását (átlagtól való átlagos elétérés)
     * ezeket fedd le tesztekkel
