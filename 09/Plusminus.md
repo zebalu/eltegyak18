@@ -10,14 +10,14 @@ Egy feladatot csak abban az esetben fogadok el, ha minden alpontját teljesíted
 2. (1 pont) Egészítsd ki az objektumokat olyan függvénnyel, amely visszadaja a lista:
   * átlagát
   * szórását (átlagtól való átlagos elétérés)
-  * ezek fedd le tesztekkel
+  * ezeket fedd le tesztekkel
 3. (1. pont) Egészítsd ki az objektumokat olyan függvényekkel, melyek meg tudják adni a lista:
   * móduszát (leggyakoribb érték)
   * mediánját (középső érték)
-  * ezeket fedd is le tesztekkel
+  * ezeket fedd le tesztekkel
 4. (1 pont) Készíts main függvéynt, mely:
-  * ha kap 1 file név paramétert, és a paraméterül kapott file-t megnyitja, abból pedig beolvassa a számokat (számként) egy listába
+  * ha kap 1 pramétert, azt file névként értelmezi, és a paraméterül kapott file-t megnyitja, abból pedig beolvassa a számokat (számként) egy listába
   * ha nem kap paramétert, a standard inputról olvassa be a felhasználótól az adatokat (számokat számként) és menti el egy listába
-  * végezetül kiírja a beolvasott számokat rendezve
-  * ha nem 1 / 0 parramétert kap, vagy a paraméterül kapott file nem létezik / nem olvasható / nem megfelelő adatokat tartalmaz, a program kivételt dob és leáll
+  * végezetül kiírja a beolvasott számokat növekvő sorrendben rendezve
+  * ha nem 0 vagy 1 paramétert kap, vagy a paraméterül kapott file nem létezik / nem olvasható / nem megfelelő adatokat tartalmaz / a felhasználó nem megfelelő adatoakt visz be, a program kivételt dob és leáll
  
