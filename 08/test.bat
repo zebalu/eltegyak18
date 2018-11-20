@@ -1,0 +1,2 @@
+javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar gyak\PatientTest.java gyak\Patient.java gyak\PatientIsNotReadyException.java
+java -cp .;junit-4.12.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore gyak.PatientTest
