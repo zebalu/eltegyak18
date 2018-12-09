@@ -1,6 +1,6 @@
 package routes;
 
-public class Vertex {
+public class Vertex implements Comparable<Vertex> {
 	
 	private final String name;
 	
@@ -32,5 +32,10 @@ public class Vertex {
 	@Override
 	public int hashCode() {
 		return name.hashCode();
+	}
+	
+	@Override
+	public int compareTo(Vertex other) {
+		return name.compareTo(other.name);
 	}
 }

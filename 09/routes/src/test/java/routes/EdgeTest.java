@@ -14,52 +14,76 @@ public class EdgeTest {
 	public void initTest() {
 		from = new Vertex("a");
 		to = new Vertex("b");
-		e = new Edge(from, to);
+		e = new Edge<Long>(from, to, 7L);
 	}
 	
 	
 	@Test
 	public void creationKeepsFromAndTo() {
-		Edge e = new Edge(new Vertex("apple"), new Vertex("pear"));
+		Edge e = new Edge(new Vertex("apple"), new Vertex("pear"), 2);
 		Assert.assertEquals(new Vertex("apple"), e.getFrom());
 		Assert.assertEquals(new Vertex("pear"), e.getTo());
 	}
 	
 	@Test
 	public void toStringReturnsReadableString() {
-		Assert.assertEquals("a --> b", e.toString());
+		Assert.assertEquals("V<a> --> V<b>", e.toString());
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void canNotCreateEdgeOnNullFrom() {
-		new Edge(null, to);
+		new Edge(null, to, 4);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void canNotCreateEdgeOnNullTo() {
-		new Edge(from, null);
+		new Edge(from, null, 4);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void canNotCreateEdgeWithSameFromAndTo() {
-		new Edge(from, from);
+		new Edge(from, from, 4);
 	}
 	
 	@Test
 	public void sameEdgesAreEqual() {
-		Edge other = new Edge(from, to);
+		Edge other = new Edge(from, to, 4L);
 		Assert.assertTrue(e.equals(other));
 	}
 	
 	@Test
 	public void differentEdgesAreNotEqual() {
-		Edge other = new Edge(to, from);
+		Edge other = new Edge(to, from, 4L);
 		Assert.assertFalse(e.equals(other));
 	}
 	
 	@Test
 	public void equalEdgesShareHasCode() {
-		Edge other = new Edge(from, to);
+		Edge other = new Edge(from, to, 4L);
 		Assert.assertTrue(e.hashCode() == other.hashCode());
+	}
+	
+	@Test
+	public void goodOrdering() {
+		Edge other = new Edge(to, from, 2L);
+		Assert.assertTrue(e.compareTo(other) <  0);
+	}
+	
+	@Test
+	public void badOrdering() {
+		Edge other = new Edge(to, from, 2L);
+		Assert.assertTrue(other.compareTo(e) >  0);
+	}
+	
+	@Test
+	public void irrelevantOrdering() {
+		Edge other = new Edge(from, to, 7L);
+		Assert.assertTrue(e.compareTo(other) ==  0);
+	}
+	
+	@Test
+	public void cheaperRoutIsCmoparedGood() {
+		Edge other = new Edge(from, to, 9L);
+		Assert.assertTrue(e.compareTo(other) <  0);
 	}
 }

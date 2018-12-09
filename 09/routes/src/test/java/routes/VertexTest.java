@@ -42,4 +42,28 @@ public class VertexTest {
 		Vertex v2 = new Vertex("a");
 		assertTrue(v1.hashCode() == v2.hashCode());
 	}
+	
+	@Test
+	public void goodOrderIsSigned() {
+		Vertex v1 = new Vertex("a");
+		Vertex v2 = new Vertex("b");
+		
+		assertTrue(v1.compareTo(v2) < 0);
+	}
+	
+	@Test
+	public void badOrderIsSigned() {
+		Vertex v1 = new Vertex("a");
+		Vertex v2 = new Vertex("b");
+		
+		assertTrue(v2.compareTo(v1) > 0);
+	}
+	
+	@Test
+	public void sameOrderIsSigned() {
+		Vertex v1 = new Vertex("a");
+		Vertex v2 = new Vertex("a");
+		
+		assertTrue(v1.compareTo(v2) == 0);
+	}
 }

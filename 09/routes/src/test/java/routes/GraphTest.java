@@ -36,4 +36,35 @@ public class GraphTest {
 		Graph g = new Graph();
 		assertFalse(g.contains(new Vertex("a")));
 	}
+	
+	@Test
+	public void edgeIsFound() {
+		Graph<Integer> g = new Graph<>();
+		g.addEdge(new Edge<Integer>(new Vertex("a"), new Vertex("b"), 1));
+		g.addEdge(new Edge<Integer>(new Vertex("b"), new Vertex("c"), 1));
+		assertTrue(g.isThereAWay(new Vertex("b"), new Vertex("c")));
+	}
+	
+	@Test
+	public void wayIsFound() {
+		Graph<Integer> g = new Graph<>();
+		g.addEdge(new Edge<Integer>(new Vertex("a"), new Vertex("b"), 1));
+		g.addEdge(new Edge<Integer>(new Vertex("b"), new Vertex("c"), 1));
+		assertTrue(g.isThereAWay(new Vertex("a"), new Vertex("c")));
+	}
+	@Test
+	public void notExistingWayIsNotFound() {
+		Graph<Integer> g = new Graph<>();
+		g.addEdge(new Edge<Integer>(new Vertex("a"), new Vertex("b"), 1));
+		g.addEdge(new Edge<Integer>(new Vertex("b"), new Vertex("a"), 1));
+		assertFalse(g.isThereAWay(new Vertex("a"), new Vertex("c")));
+	}
+	
+	@Test
+	public void graphToString() {
+		Graph<Integer> g = new Graph<>();
+		g.addEdge(new Edge<Integer>(new Vertex("a"), new Vertex("b"), 1));
+		g.addEdge(new Edge<Integer>(new Vertex("b"), new Vertex("c"), 1));
+		assertEquals("V<a>\n"+"V<b>\n"+"V<c>\n"+"V<a> --> V<b>\n"+"V<b> --> V<c>", g.toString());
+	}
 }

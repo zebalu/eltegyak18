@@ -1,11 +1,12 @@
 package routes;
 
-public class Edge {
+public class Edge<T extends Comparable<T>> implements Comparable<Edge<T>> {
 	
 	private final Vertex from;
 	private final Vertex to;
+	private final T cost;
 	
-	public Edge(Vertex from, Vertex to) {
+	public Edge(Vertex from, Vertex to, T cost) {
 		if(from == null || to == null) {
 			throw new IllegalArgumentException("vertexes must not be null");
 		}
@@ -14,6 +15,7 @@ public class Edge {
 		}
 		this.from=from;
 		this.to=to;
+		this.cost = cost;
 	}
 	
 	public Vertex getFrom() {
@@ -24,9 +26,13 @@ public class Edge {
 		return to;
 	}
 	
+	public T getCost() {
+		return cost;
+	}
+	
 	@Override
 	public String toString() {
-		return from.getName() + " --> " + to.getName();
+		return from.toString() + " --> " + to.toString();
 	}
 	
 	@Override
@@ -46,5 +52,18 @@ public class Edge {
 		result *= prime;
 		result += to.hashCode() * prime;
 		return result;
+	}
+	
+	@Override
+	public int compareTo(Edge<T> other) {
+		int fromCompare = from.compareTo(other.from);
+		if(fromCompare == 0) {
+			int toCompare = to.compareTo(other.to);
+			if(toCompare == 0) {
+				return cost.compareTo(other.cost);
+			}
+			return to.compareTo(other.to);
+		}
+		return fromCompare;
 	}
 }
